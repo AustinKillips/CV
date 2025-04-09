@@ -1,0 +1,557 @@
+:root {
+  --primary-color: #e93423;
+  --secondary-color: #faec27;
+  --highlight-color: #00ff00;
+  --text-color: #000000;
+  --link-color: #1155cc;
+  --background-color: #ffffff;
+  --border-width: 2.2pt;
+  --section-spacing: 2rem;
+  --item-spacing: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: "Sofia Sans", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  background-color: #00ff00;
+  padding: .3em .3em;
+  font-size: 15pt;
+  font-weight: 900;
+  line-height: ;
+}
+
+a.secondstyle {
+  color: black;
+  text-decoration: none;
+  background-color: #ffff;
+  padding: .3em .3em;
+
+}
+
+a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+  cursor: ne-resize;
+}
+
+.cv-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative; /* Add this to position the continuous border */
+}
+
+
+.cv-header {
+  display: inline-block;
+  flex-direction: column;
+  align-items: ;
+  margin-bottom: rem;
+  border-bottom: 14pt solid var(--secondary-color);
+  padding-bottom: rem;
+}
+
+.cv-header h1 {
+  font-size: 32pt;
+  font-weight: 900;
+  margin-left: 0;
+  margin-bottom: -1rem;
+}
+
+.contact-email {
+  display:inline-flex;
+  position: relative;
+  font-size: 10pt;
+  font-style: italic;
+  font-weight: 900;
+  padding-left: .5rem;
+  padding-right: .4rem;
+  margin-top: -20rem;
+  z-index: 1;
+  border-bottom: 3pt solid var(--primary-color);
+  border-left: 3pt solid var(--primary-color);
+  border-right: 3pt solid var(--primary-color);
+}
+
+.alt-contact-email {
+  display:inline-flex;
+  position: relative;
+  font-size: 10pt;
+  font-style: italic;
+  font-weight: 900;
+  padding-left: .5rem;
+  padding-right: .4rem;
+  margin-top: -20rem;
+  z-index: 1;
+  border-bottom: 3pt solid var(--primary-color);
+ 
+  border-right: 3pt solid var(--primary-color);
+}
+
+
+.headerpopout {
+  display: inline-flex;
+  position: absolute;
+}
+
+.intro {
+  display: inline-flex;
+  position: relative;
+  margin-bottom: var(--section-spacing);
+  font-style: italic;
+  margin-left: 0rem; /* Align with other sections */
+  margin-top: 2rem;
+  padding-top: 3rem; 
+  padding: .5rem;
+  line-height: 1;
+  letter-spacing: -.4px;
+}
+
+div.top:before {
+  content : "";
+  position: absolute;
+  left: 0rem;
+  top: -.7rem;
+  height: 5px;
+  width: 97%;
+  border-top:4px solid var(--primary-color);
+}
+
+div.bottom:before {
+  content: "";
+  position: absolute;
+  left: 0rem;
+  top: 4.4rem;
+  bottom: 0;
+  height: 15px;
+  width: 107%;
+  border-bottom:4px solid var(--secondary-color);
+}
+
+div.left:before {
+  content: "";
+  position: absolute;
+  left: 0rem;
+  top: -.5rem;
+  height: 5rem;
+  width: 50%;
+  border-left:4px solid var(--primary-color);
+}
+
+div.left2:before {
+  content: "";
+  position: absolute;
+  left: 0rem;
+  top: 5.5rem;
+  height: 2rem;
+  width: 50%;
+  border-left:4px solid var(--secondary-color);
+}
+
+div.right:before {
+  
+  content: "";
+  position: absolute;
+  left: 5.8rem;
+  right: 0rem;
+  top: 3.9rem;
+  height: 1.5rem;
+  width: 50%;
+  border-right:4px solid var(--secondary-color);
+}
+
+.borderbox{
+  padding-left: .4rem;
+}
+
+h2 {
+  position: relative;
+  font-size: 20pt;
+  font-weight: 900;
+  font-style: italic;
+  border-top: var(--border-width) solid var(--primary-color);
+  border-left: var(--border-width) solid var(--primary-color);
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  margin-bottom: rem;
+  z-index: 1;
+}
+
+h3 {
+  display: inline;
+  font-size: 15pt;
+  font-weight: 900;
+  margin-bottom: 0rem;
+  padding-left: 20px;
+  line-height: 1;
+}
+
+h4 {
+  text-align: center;
+  display: block;
+  font-size: 15pt;
+  font-weight: 900;
+  margin: 1rem 0;
+  padding-left: ;
+}
+
+p {
+  padding-left: 20px;
+}
+
+/*.timeline-item,
+.achievement-item,
+.writing-item,
+.video-item,
+.interview-item,
+.research-item,
+.result-item,{
+  padding-left: 0.5rem;
+  margin-bottom: var(--item-spacing);
+  position: relative; /* Add this for positioning */
+  border-left: var(--secondary-color); /*Remove the individual borders */
+
+
+.education {
+  position: relative;
+  padding-left: 20px; /* Create space for the vertical line */
+}
+
+/* Create the continuous vertical line */
+.education::before {
+  content: "";
+  position: absolute;
+  left: 2rem;
+  margin-top: 19rem;
+  margin-bottom: .2rem;
+  top: 0; /* Start from the top of the education section */
+  bottom: 0; /* Extend to the bottom of the education section */
+  width: 3px;
+  background-color: #faec27;
+  z-index: 0;
+  border-left: var(--secondary-color); /*Remove the individual borders */
+}
+
+/* Optional: Position the year elements consistently */
+.year {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  line-height: 2.;
+}
+
+.details {
+  display: inline;
+  flex-direction: column;
+  flex-grow: 1;
+  
+}
+
+.details.event {
+}
+
+.institution,
+.position {
+  display: inline;
+  text-align: center;
+  padding: 11rem;
+  font-weight: 700;
+  text-wrap: nowrap;
+  white-space:nowrap
+  
+}
+
+.concentration,
+.company {
+  display: inline;
+  float:right;
+  font-weight: 700;
+  font-style: italic;
+  text-wrap: nowrap;
+  white-space:nowrap
+}
+
+.video-item .title,
+.interview-item .title,
+.research-item .title {
+  font-weight: 700;
+}
+
+.achievement-item {
+  display: inline;
+  position: ;
+  clear: both; /* Ensures each item starts fresh */
+  overflow: hidden; /* Contains the floats */
+}
+
+.achievement-item a{
+  position: relative;
+  float: right;
+  font-weight: 700;
+  display;
+  gap: 1rem; /* Space between elements */
+  clear: both;
+  overflow: hidden;
+    
+}
+
+.title {
+  font-weight: 700;
+  display: inline;
+}
+
+.title a{
+  float: right;
+  display: inline;
+  position: relative;
+  gap: 1rem;
+  clear:right;
+}
+
+.note {
+  font-size: 9pt;
+  margin-bottom: 0.5rem;
+  padding-left: 20px;
+  line-height: 1;
+  margin-top: .25rem;
+}
+
+.subheading{
+  font-size: 9pt;
+  margin-bottom: 0.5rem;
+  padding-left: 20px;
+  line-height: 1;
+  margin-top: -.4rem;
+}
+
+.quote {
+  font-size: 9pt;
+  font-style: italic;
+  margin-bottom: 0.rem;
+  padding-left: 20px;
+}
+
+/* Updated source-link styling for right alignment */
+.source-link {
+  display: block;
+  text-align: right;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight {
+  background-color: var(--highlight-color)
+  padding: 0 0.25rem;
+}
+
+
+
+.link-placeholder {
+  background-color: var(--highlight-color);
+  padding: 0 0.25rem;
+  font-weight: 700;
+  display: block;
+  text-align: right;
+}
+
+
+.event {
+  font-weight: 700;
+  position: relative;
+  display: inline; /* Change from inline to block to contain the place */
+
+}
+
+.place.highlight {
+  float: right;
+  display: inline;
+  position: relative;
+  background-color: var(--highlight-color);
+  padding: .3em .3em;
+  font-size: 14pt;
+  font-weight: 900;
+}
+
+/* Fix your result-item class to match research-item */
+.result-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.result-item .year {
+  width: 120px;
+}
+
+.result-item .details {
+  flex: 1;
+  display: block;
+}
+.ban-notice {
+  display: inline-block;
+  background-color: #ff0000;
+  color: var(--text-color);
+  font-weight: 700;
+  padding-left: rem;
+  padding-bottom: rem;
+  margin-left: rem;
+  float: right;
+  
+}
+
+.cv-footer {
+  position: relative;
+  padding-left: -20p;
+  margin-top: 0rem;
+  border-top: var(--border-width) solid var(--primary-color);
+  padding-top: 0rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.cv-footer h2 {
+  position: absolute;
+  border: none;
+  font-size: 14pt;
+}
+
+.cv-footer .alt-contact-email {
+  font-size: 13pt;
+float: left;
+  margin-top: 0rem;
+  margin-bottom: 3rem;
+  z-index: 0;
+}
+
+.outro {
+  display: inline-flex;
+  position: relative;
+  margin-bottom: var(--section-spacing);
+  font-style: italic;
+  margin-left: -15.7rem; /* Align with other sections */
+  margin-top: 5rem;
+  padding-top: 3rem; 
+  padding: .5rem;
+  line-height: 1;
+  letter-spacing: -.4px;
+  text-align: left;
+  float: left;
+}
+
+div.outro-top:before {
+  content : "";
+  position: absolute;
+  left: 6.5rem;
+  top: -.7rem;
+  height: 5px;
+  width: 50%;
+  border-top:4px solid var(--primary-color);
+}
+
+div.outro-bottom:before {
+  content: "";
+  position: absolute;
+  left: .58rem;
+  top: 4.3rem;
+  bottom: 0;
+  height: 15px;
+  width: 103%;
+  border-bottom:4px solid var(--secondary-color);
+}
+
+div.outro-left:before {
+  content: "";
+  position: absolute;
+  left: .58rem;
+  top: -5.2rem;
+  height: 10.6rem;
+  width: 50%;
+  border-left:4px solid var(--secondary-color);
+  float: ;
+}
+
+div.outro-right:before {
+  
+  content: "";
+  position: absolute;
+  left: 6.3rem;
+  right: 0rem;
+  top: -.5rem;
+  height: 3rem;
+  width: 50%;
+  border-right:4px solid var(--primary-color);
+}
+
+/* For the writing, video, interview, and research sections that have year and details */
+.writing-item,
+.video-item,
+.interview-item,
+.research-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+.achievement-item,
+.writing-item .year,
+.video-item .year,
+.interview-item .year,
+.research-item .year {
+  width: 120px;
+}
+
+.writing-item .details,
+.video-item .details,
+.interview-item .details,
+.research-item .details {
+  flex: 1;
+  display: inline;
+  flex-direction: ;
+}
+
+/* Make sure links in these sections are right-aligned */
+.writing-item .source-link,
+.video-item .link-placeholder,
+.interview-item .source-link,
+.research-item .source-link {
+  align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .timeline-item,
+  .result-item {
+    flex-direction: column;
+  }
+
+  .year {
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-header h1 {
+    font-size: 24pt;
+    margin-left: 0;
+
+  }
+
+  h2 {
+    font-size: 18pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+}
