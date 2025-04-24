@@ -205,7 +205,15 @@ a {
     gap: clamp(.2rem + 6vw);
 }
 
-
+.result-timeline-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.7fr) minmax(0, 1.5fr);
+    width: 100%;
+    align-items: start;
+    margin-bottom: 0rem;
+    padding-left: 1.3rem;
+    gap: clamp(.2rem + 6vw);
+}
 
 /* the left column and it's child elements live here */
  
@@ -247,13 +255,19 @@ a {
     min-width: min-content;
 }
 
-.item {
+.race-result {
+    font-size: 17px;
+}
 
+.item {
+    margin-bottom: .5rem;
 }
 
 .event {
     font-weight: 450;
     text-align: left;
+    margin-bottom: .5rem;
+
 
 }
 
@@ -283,14 +297,16 @@ a {
     text-align: right;
     justify-self: end;
 }
-
+.alt-result-highlight,
 .result-highlight {
+    font-size: 17px;
     padding: 0em .25em 0em .25em;
     font-weight: 550;
 }
 
 .company,
 .concentration {
+    font-weight: 550;
     font-style: italic;
     text-align: right;
     white-space: nowrap;
@@ -303,7 +319,7 @@ a {
     margin-top: .25rem;
 
     .link:hover {
-    text-decoration: ;
+        text-decoration: ;
     }
 
 .result {
@@ -326,6 +342,9 @@ a {
 /* Medium screens - change to 2 columns */
 @media (max-width: 845px) {
 
+    body {
+    overflow-x: hidden; 
+    }
 
    H3 {
     padding-left: 0rem;
@@ -360,7 +379,6 @@ a {
     gap: clamp(.2rem + 6vw);
 }
 
-
         .alt-timeline-item {
         display: grid;
         grid-template-columns: auto .1fr; /* Adjust year column width as needed */
@@ -369,7 +387,7 @@ a {
         column-gap: calc((var(--screen-width) - 571px) * .6);        
         row-gap: 0.25rem;
         padding-left: 1rem;    
-    }
+    } 
     
 /* the left column and it's child elements live here */
 
@@ -459,13 +477,31 @@ a {
         grid-column: 3; /* Same column as center */
         grid-row: 1;
         text-align: left;
-        justify-self: start;
+        justify-self: center;
         margin-top: 0rem;
         margin-left: 0rem;
         padding-left: 0rem;
         text-wrap: nowrap;
         padding: 0em .25em 0em .25em;
+        }
 
+        .alt-result-highlight {
+            grid-column: 2; /* Same column as center */
+            grid-row: 2;
+            text-align: right;
+            justify-self: center;
+            margin-top: 0rem;
+            margin-left: 0rem;
+            padding-left: 0rem;
+            padding: 0em .25em 0em .25em;
+            width: 100%;
+            text-wrap: nowrap;
+            white-space: nowrap;
+        }
+
+        .place-highlight {
+            text-align: right;
+            justify-self: center;
         }
 
 /* Small screens - change to 1 column */
@@ -473,13 +509,14 @@ a {
 
     body {
         padding: 0px;
+        overflow-x: hidden;
     }
 
     h2 {
        /* In single column, let the border span the container width */
        max-width: none; /* Remove max-width constraint */
        min-width: 42vw;
-       width: 100%; /* Ensure it takes full available width */
+       width: 95%; /* Ensure it takes full available width */
    }
 
    .education {
@@ -490,6 +527,9 @@ a {
    .work {
     max-width: 294.75px;
     min-width: 294.75px;
+   }
+   .achievements {
+    min-width: 40px;
    }
 
    .achievements,
@@ -507,7 +547,7 @@ a {
        grid-template-columns: 1.5fr 1fr; /* Full width column */
        grid-template-rows: auto auto auto; /* Rows for year, center, right */
        gap: 0rem; /* Adjust row gap */
-       width: 150%;
+       width: 100%;
        padding-left: 1rem; /* No padding needed */
    }
 
@@ -594,6 +634,8 @@ a {
         margin-top: 0rem;
         margin-left: 0rem;
         padding-left: 0rem;
+        padding: 0em .25em 0em .25em;
+
     }
 
     .alt-result-highlight {
@@ -605,6 +647,10 @@ a {
         margin-left: 0rem;
         padding-left: 0rem;
         width: 100%;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        padding: 0em .25em 0em .25em;
+
     }
 }
 
@@ -647,6 +693,10 @@ a:hover {
 }
 
 @media (max-width: 290px) {
+
+    .body {
+        overflow-x: hidden;
+        }
 
     .achievements,
     .writing,
