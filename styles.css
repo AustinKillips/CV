@@ -187,7 +187,7 @@ a {
 
 .timeline-item {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.7fr) minmax(0, 1.5fr);
+    grid-template-columns: max-content minmax(100px, 1fr) max-content;
     width: 100%;
     align-items: start;
     margin-bottom: 0rem;
@@ -218,6 +218,7 @@ a {
 /* the left column and it's child elements live here */
  
 .year {
+    min-width: 100px;
     font-size: 17.72px;
     font-weight: 450;
     text-align: left;
@@ -235,8 +236,10 @@ a {
 /* the center column and it's child elements live here */
 
 .center-column {   
+    margin-left: 13rem;
     text-align: left;
     justify-self: start;
+    width: 40%;
 }
 .position,
 .institition {
@@ -352,7 +355,7 @@ a {
    }
 
    H2 {
-    width: 30rem;
+    width: 100rem;
    }
 
     .work,
@@ -362,29 +365,21 @@ a {
     .interviews,
     .research,
     .cycling-results {
-        max-width: 85%;
+        max-width: 100%;
     }
-
+ 
 
 /* the overall section properties column structure levers live here */
 
 
-.timeline-item {
-    display: grid;
-    grid-template-columns: minmax(190px, 1.7fr) minmax(0, 1fr) minmax(0, 1.5fr);
-    width: 100%;
-    align-items: start;
-    margin-bottom: 0rem;
-    padding-left: 1.3rem;
-    gap: clamp(.2rem + 6vw);
-}
+
 
         .alt-timeline-item {
         display: grid;
-        grid-template-columns: auto .1fr; /* Adjust year column width as needed */
+        grid-template-columns: 3fr .1fr; /* Adjust year column width as needed */
         grid-template-rows:auto auto;
         width: 100%;
-        column-gap: calc((var(--screen-width) - 571px) * .6);        
+        column-gap: calc((var(--screen-width) - 571px) * .16);        
         row-gap: 0.25rem;
         padding-left: 1rem;    
     } 
@@ -407,6 +402,11 @@ a {
         white-space: nowrap;
         padding-right: 1rem;
     }
+
+    .institution,
+    .position {
+        margin-top: -.5rem;
+    }
     
 /* the center column and it's child elements live here */
 
@@ -415,9 +415,18 @@ a {
         grid-column: 2;
         grid-row: 1;
         text-align: left;
-        margin-left: 0rem;
-        justify-self: end;
+        margin-left: 6rem;
+        justify-self: center;
     }
+
+    .alt-center-column { 
+        grid-column: 1;
+        grid-row: 2;
+        text-align: left;
+        margin-left: 0rem;
+        justify-self: start;
+    }
+
 
     .notable-achievement,
     .written-work,
@@ -430,14 +439,11 @@ a {
     }
     
 
-    .institution {
-        text-align: right;
-        justify-self: end;
-    }
+
 
     .description,
     .authors {
-        width: 82%;
+        width: 100%;
        }
 
        .race-result {
@@ -459,7 +465,9 @@ a {
         padding-left: 0rem;
     }
 
-    .concentration {
+    .concentration,
+    .company {
+        margin-top: -.3rem;
         text-align: left;
     }
 
@@ -467,7 +475,7 @@ a {
         grid-column: 3; /* Same column as center */
         grid-row: 1;
         text-align: left;
-        justify-self: center;
+        justify-self: end;
         margin-top: 0rem;
         margin-left: 0rem;
         padding-left: 0rem;
@@ -508,9 +516,29 @@ a {
 @media (max-width: 605px) {
 
     body {
-        padding: 0px;
+        padding: 20px;
         overflow-x: hidden;
     }
+
+
+    .cv-container {
+        max-width: 1400px;
+        width: 140%;
+        margin: 0 0;
+        padding: 1.5rem;
+        position: relative; /* Add this to position the continuous border */
+      }
+      .cv-container::before {
+        content: "";
+        position: absolute;
+        top: 20.2rem;
+        bottom: 0;
+        left: 1.5rem;
+        width: 2px;
+        background-color: #faec27;
+        z-index: -10;
+      }
+    
 
     h2 {
        /* In single column, let the border span the container width */
@@ -520,13 +548,13 @@ a {
    }
 
    .education {
-    max-width: 275.1px ;
-    min-width: 275.1px;
+    max-width: 100%;
+    min-width: 100%;
    }
 
    .work {
-    max-width: 294.75px;
-    min-width: 294.75px;
+    max-width: 100%;
+    min-width: 100%;
    }
    .achievements {
     min-width: 40px;
@@ -544,7 +572,7 @@ a {
 
    .timeline-item {
        /* Single column layout */
-       grid-template-columns: 1.5fr 1fr; /* Full width column */
+       grid-template-columns: 1.9fr 1fr; /* Full width column */
        grid-template-rows: auto auto auto; /* Rows for year, center, right */
        gap: 0rem; /* Adjust row gap */
        width: 100%;
@@ -559,7 +587,6 @@ a {
     width: 130%;
     padding-left: 1rem; /* No padding needed */
 }
-
 .institution {
     text-align: left;
     justify-self: start;
@@ -609,6 +636,7 @@ a {
    }
 
    .right-column {
+    grid-column: 1;
        grid-row: 3;
       /* margin-left: 0rem; /* Removed fixed margin */
        margin-top: 0; /* Use gap */
@@ -655,8 +683,8 @@ a {
 }
 
    .company,
-   .concentration,
-   .link {
+   .concentration{
+        grid-row: 2;
         text-align: left; /* Ensure left alignment */
    }
 
@@ -671,11 +699,16 @@ a:hover {
 }
 
 /* Small screens - change to 1 column */
-@media (max-width: 360px) {
+@media (max-width: 356px) {
+ 
+    .body {
+        overflow-x: hidden;
+        }
 
     .cv-container {
-        max-width: 1000px;
-        margin: 0 auto;
+        max-width: 1400px;
+        width: 130%;
+        margin: 0 0;
         padding: 1.5rem;
         position: relative; /* Add this to position the continuous border */
       }
@@ -690,13 +723,8 @@ a:hover {
         z-index: -10;
       }
     
-}
 
-@media (max-width: 290px) {
-
-    .body {
-        overflow-x: hidden;
-        }
+  
 
     .achievements,
     .writing,
@@ -716,6 +744,7 @@ a:hover {
         gap: 0rem; /* Adjust row gap */
         width: 150%;
         padding-left: 1rem; /* No padding needed */
+        padding-right: 1rem;
     }
  
     .alt-timeline-item {
@@ -726,7 +755,21 @@ a:hover {
      width: 130%;
      padding-left: 1rem; /* No padding needed */
  }
- 
+
+ .alt-result-highlight {
+    grid-column: 2; /* Same column as center */
+    grid-row: 2;
+    text-align: right;
+    justify-self: start;
+    margin-top: 0rem;
+    padding-right: 0%;
+    width: 100%;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    padding: 0em .25em 0em .25em;
+
+}
+
 }
 
 }
