@@ -522,7 +522,7 @@ a {
 
 
     .cv-container {
-        max-width: 1400px;
+        max-width: 100%;
         width: 140%;
         margin: 0 0;
         padding: 1.5rem;
@@ -706,7 +706,7 @@ a:hover {
         }
 
     .cv-container {
-        max-width: 1400px;
+        max-width: 100%;
         width: 130%;
         margin: 0 0;
         padding: 1.5rem;
