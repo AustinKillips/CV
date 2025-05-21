@@ -742,7 +742,7 @@ a:hover {
         grid-template-columns: 1.1fr auto; /* Full width column */
         grid-template-rows: auto auto auto; /* Rows for year, center, right */
         gap: 0rem; /* Adjust row gap */
-        width: 150%;
+        width: 100%;
         padding-left: 1rem; /* No padding needed */
         padding-right: 1rem;
     }
