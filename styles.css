@@ -6,7 +6,7 @@
     --link-color: #1155cc;
     --background-color: #ffffff;
     --border-width: 2.2pt;
-    --section-spacing: 1rem;
+    --section-spacing: 2rem;
     --item-spacing: 1rem;
     --screen-width: 100vw;
 
@@ -74,7 +74,7 @@ a {
     content: "";
     position: absolute;
     top: 22rem;
-    bottom: 0;
+    bottom: 1rem;
     left: 3rem;
     width: 2px;
     background-color: #faec27;
@@ -104,8 +104,6 @@ a {
     font-style: italic;
     font-weight: 900;
     margin-left: 9.25rem;
-    padding-left: .5rem;
-    padding-right: .4rem;
     margin-top: 0rem;
     z-index: 1;
     border-bottom: 3pt solid var(--primary-color);
@@ -320,9 +318,10 @@ a {
     white-space: nowrap ;
     display: block;
     margin-top: .25rem;
+}
 
-    .link:hover {
-        text-decoration: ;
+.link:hover {
+
     }
 
 .result {
@@ -331,13 +330,73 @@ a {
     display: block;
     margin-top: .25rem;
 }
-}
+
 
 .timeline-item > div {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
 }
+  
+  .cv-footer {
+    width: 100%;
+    height: 5rem;
+    display: grid;
+    position: relative;
+    margin-bottom: rem;
+    margin-top: 0rem;
+    border-top: 2px solid var(--primary-color);
+    padding-top: 0rem;
+    text-align: right;
+    z-index: 1;
+    
+  }
+
+  .bottom-contact-email {
+    display:inline-flex;
+    position:absolute;
+    font-size: 10pt;
+    font-style: italic;
+    font-weight: 900;
+    margin-top: 0rem;
+    z-index: 1;
+    color: black;
+    text-decoration: underline;
+    background-color: white;
+    border-bottom: 3pt solid var(--primary-color);
+    border-left: 2pt solid var(--primary-color);
+    border-right: 3pt solid var(--primary-color);
+  }
+
+.outro {
+    display: grid;
+    position: relative;
+    margin-bottom: var(--section-spacing);
+    font-style: italic;
+    left: 3rem; /* align with other sections */
+    margin-top: 1rem;
+    padding: 0.5rem;
+    line-height: 1;
+    letter-spacing: -.4px;
+    text-align: left;
+    float: left;
+  }
+  
+  /* Common styles for decorative pseudo-elements */
+  div.outro-top:before {
+    content: "";position: absolute;left: 6.8rem; top: -0.7rem;height: 5px;width: 48%;border-top: 4px solid var(--primary-color);
+  }
+  
+  div.outro-right:before {
+    content: "";position: absolute; left: 6.3rem;top: -0.5rem;height: 3rem;width: 50%;border-right: 4px solid var(--primary-color);
+  }
+
+  div.outro-left:before {
+    content: "";position: absolute;left:-8.6rem;top: -4rem;height: 9rem; width: 50%;border-right: 4px solid var(--secondary-color);
+  }
+  div.outro-bottom:before {
+    content: "";position: absolute;left: -3rem;top: 4.9rem;height: 5px;width: 50%;border-top: 4px solid var(--secondary-color);
+  }
 
 /* Responsive adjustments */
 
@@ -544,7 +603,7 @@ a {
        /* In single column, let the border span the container width */
        max-width: none; /* Remove max-width constraint */
        min-width: 42vw;
-       width: 95%; /* Ensure it takes full available width */
+       width: 100%; /* Ensure it takes full available width */
    }
 
    .education {
@@ -648,7 +707,7 @@ a {
     grid-column: 2; /* Same column as center */
     grid-row: 2;
     text-align: left;
-    justify-self: center;
+    justify-self: right;
     margin-top: 0rem;
     margin-left: 0rem;
     padding-left: .25rem;
