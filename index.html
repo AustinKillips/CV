@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,23 +7,146 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <title>Austin's Digital Respository</title>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: "Sofia Sans", Arial, sans-serif;
+    }
+</style>
 </head>
+<style>
+    .section-header {
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        margin-bottom: .6rem;
+    }
+    
+    .section-header::after {
+        content: '+';
+        position: absolute;
+        left: -.8em;
+        right: 100;
+        top: -.1em;
+        font-size: 1em;
+        font-weight: bold;
+        transition: transform 06.s ease;
+    }
+    
+    .section-header.expanded::after {
+        content: '−';
+        transform: rotate(var(--random-rotation, 0deg));
+        transition: opacity .5s ease-out;
+        color: #1155cc;
+    }
+    
+    .section-content {
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        max-height: 0;
+        opacity: 0;
+    }
+    
+    .section-content.expanded {
+        max-height: none; /* Increased for longer sections */
+        opacity: 1;
+
+    }
+    
+    .section-header:hover {
+        opacity: 0.8;
+        text-decoration:solid;
+    }
+    
+    /* Fix for floating element in achievements section */
+    .achievements .section-content:not(.expanded) .writing-item {
+        display: none;
+    }
+    
+    .section-content::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
 <body>
+    
 <main class="cv-container">
     <header class="cv-header">
-      <h1>AUSTIN KILLIPS<br>
-          C V&#20</h1>
-    </header>  
-   
-    <section class="headpopout">
-    <a href="mailto:hello@austinkillips.com" class="secondstyle contact-email" >hello@austinkillips.com</a> 
+       <h3>DIGITAL REPOSITORY FOR:</h3>
+       <h1>AUSTIN KILLIPS  </h1>
+       
+       <section class="headpopout">
+        <a href="#" class="secondstyle contact-email" id="openPopup">say hi</a> 
     </section>
+
+   
+   <!-- Popup Overlay -->
+   <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content"> 
+        <button class="close-btn" id="closePopup">&times;</button>
+
+        
+        <div class="success-message" id="successMessage">
+            thanks for saying hello<br> I can't wait to read your words
+        </div>
+
+        <section class="contact-section">
+            <div class="contact-intro">
+              <h1 class="contact-title">hi, let's be friends</h1>
+              <p class="contact-subtitle" style="font-style:italic">collaborators, confidants, and business partners also welcome</p>
+            </div>
+          
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="form">
+          
+              <input type="hidden" name="access_key" value="99ebe22f-6341-45aa-9db3-71048a8799c5" />
+              <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+              <input type="hidden" name="from_name" value="My Website" />
+              <input type="checkbox" name="botcheck" id="" style="display: none;" />
+          
+              <div class="form-group-container">
+                <div class="form-group">
+                  <label for="email" class="form-label"></label>
+                  <input id="email" name="email" class="form-input" placeholder="input your email here" type="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="message" class="form-label"></label>
+                  <textarea class="form-textarea" id="message" name="message" 
+                  placeholder="how's it going?
+
+
+we can talk about anything here y'know?
+
+
+death, love, bikes, business inquiries, the list is endless...
+
+
+I'm all ears for whatever you care to share" required></textarea>
+
+<div class="form-group-container">
+    <div class="form-group">
+<button class="form-submit" type="submit">click here to send</button>
+                </div> 
+              </div>
+              </div>
+      
+             
+            </form>
+          
+        </section>
+    </div>
+</div>
+
+    </header>  
 
     <br>
     
     <section class="intro">
-      <p class="borderbox"> Hi, <br>my name is Austin <br> and this is a collection <br>of things I have done.&#20&#20</p>
+      <p class="borderbox"> Hi, <br>my name is Austin <br> and this is a collection <br>of things I have done.</p>
     <div class="top"></div>
     <div class="bottom"></div>
     <div class="left"></div>
@@ -31,120 +154,135 @@
     <div class="right"></div>
     </section>
 
+    <section class="about">
+        <h2 class="section-header" data-section="about">About</h2>
+        <div class="section-content" id="about-content">
+            
+<div class="bio"> <p>Austin Killips used to race bicycles professionally. She has set all time records on prestiguous ultra-distance bikepacking routes such as The Tour Divide and The Arizona Trail, 
+                    stood on international and domestic podiums, and generated many pretty lines with biometric sensors.
+                    She also caused quite a stir after becoming the first trans woman to win 'The Tour of the Gila'.<br>
+                <br> In the summer of twenty twenty four she decided to retire from cycling when the universe offered a chance to close the self destructive feedback loop that professional pedaling had become. <br>
+                <br> Austin now spends her time writing and making images that are both static and mobile with a small cohort of designers at Studio 405 in Providence, RI<br>
+                <br> Her interests include biometric data collection & self surveillance, Eric Rohmer, primary colors, Sisyphus, being-towards-death, and chance encounters with strangers.<br>
+                     Her words have been featured in The Guardian, Escape Collective, The Radavist, and The Nation among others publications</p>
+          </div>
+          </div>
+            </section>
 
-    <section class="education">
-        <h2>Education</h2>
-
-            <article class="alt-timeline-item">
-              <div class="year-range">
-                <time datetime="2016/2018">2016 - 2018</time>
-              </div>
-              <div class="alt-center-column">
-                <h3 class="institution">Shimer College</h3>
-              </div>
-              <div class="right-column">
-                <p class="concentration">Social Sciences concentration</p>
-              </div>
-            </article>
-
-            <article class="alt-timeline-item">
-            <div class="year-range">
-                <time datetime="2018">2018&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</time>
-            </div>
-                <div class="alt-center-column">
-                    <h3 class="institution">United Bicycle Institute</h3>
+            <section class="education">
+                <h2>Education</h2>
+        
+                    <article class="alt-timeline-item">
+                      <div class="year-range">
+                        <time datetime="2016/2018">2016 - 2018</time>
+                      </div>
+                      <div class="alt-center-column">
+                        <h3 class="institution">Shimer College</h3>
+                      </div>
+                      <div class="right-column">
+                        <p class="concentration">Social Sciences concentration</p>
+                      </div>
+                    </article>
+        
+                    <article class="alt-timeline-item">
+                    <div class="year-range">
+                        <time datetime="2018">2018&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</time>
+                    </div>
+                        <div class="alt-center-column">
+                            <h3 class="institution">United Bicycle Institute</h3>
+                        </div>
+                        <div class="right-column">
+                            <p class="concentration">Professional Repair & shop operation</p>
+                        </div>
+                    </article>
+            </section>
+        
+            <section class="work">
+                <h2>Work</h2>
+        
+                <article class="alt-timeline-item">
+                    <div class="year-range">
+                    <time datetime="2015 - 2018">2015 - 2018</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Salesperson & Mechanic</h3>
+                        </div>
+                        <div class="right-column">
+                            <p class="company">Big City Bikes</p>
+                        </div>
+                    </article>
                 </div>
-                <div class="right-column">
-                    <p class="concentration">Professional Repair & shop operation</p>
+                <div class="alt-timeline-item">
+                    <div class="year-range">
+                        <time datetime="2018 - 2021">2018 - 2021</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Service Manager</h3>
+                    </div>
+                    <div class="right-column">
+                        <p class="company">The Bike Lane</p>
+                    </div>
                 </div>
-            </article>
-    </section>
-
-    <section class="work">
-        <h2>Work</h2>
-
-        <article class="alt-timeline-item">
-            <div class="year-range">
-            <time datetime="2015 - 2018">2015 - 2018</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Salesperson & Mechanic</h3>
+                <div class="alt-timeline-item">
+                    <div class="year-range">
+                        <time datetime="2021 - 2022">2021 - 2022</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Athlete</h3>
+                    </div>
+                    <div class="right-column">
+                        <p class="company">Pratt Racing</p>
+                    </div>
                 </div>
-                <div class="right-column">
-                    <p class="company">Big City Bikes</p>
+                <div class="alt-timeline-item left-aligned">
+                    <div class="year-range">
+                        <time datetime="2022 - 2023">2022 - 2023</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Athlete & Co-founder</h3>
+                    </div>
+                    <div class="right-column">
+                        <p class="company">nice bikes</p>
+                    </div>
                 </div>
-            </article>
-        </div>
-        <div class="alt-timeline-item">
-            <div class="year-range">
-                <time datetime="2018 - 2021">2018 - 2021</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Service Manager</h3>
-            </div>
-            <div class="right-column">
-                <p class="company">The Bike Lane</p>
-            </div>
-        </div>
-        <div class="alt-timeline-item">
-            <div class="year-range">
-                <time datetime="2021 - 2022">2021 - 2022</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Athlete</h3>
-            </div>
-            <div class="right-column">
-                <p class="company">Pratt Racing</p>
-            </div>
-        </div>
-        <div class="alt-timeline-item left-aligned">
-            <div class="year-range">
-                <time datetime="2022 - 2023">2022 - 2023</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Athlete & Co-founder</h3>
-            </div>
-            <div class="right-column">
-                <p class="company">nice bikes</p>
-            </div>
-        </div>
-        <div class="alt-timeline-item">
-            <div class="year-range">
-                <time datetime="2023 - 2024">2023 - 2024</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Solo Ultra-Endurance Racing</h3>
-            </div>
-            <div class="right-column">
-                <p class="company">Industry Sponsors, Patreon</p>
-            </div>
-        </div>
-        <div class="alt-timeline-item">
-            <div class="year-range">
-                <time datetime="2023">2023 - &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Cycling coach</h3>
-            </div>
-            <div class="right-column">
-                <p class="company">Cycle-Smart</p>
-            </div>
-        </div>
-        <div class="alt-timeline-item">
-            <div class="year-range">
-                <time datetime="2023">2023 - &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</time>
-            </div>
-            <div class="alt-center-column">
-                <h3 class="position">Design collaborator</h3>
-            </div>
-            <div class="right-column">
-                <p class="company">studio 405</p>
-            </div>
-        </div>
-    </section>
+                <div class="alt-timeline-item">
+                    <div class="year-range">
+                        <time datetime="2023 - 2024">2023 - 2024</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Solo Ultra-Endurance Racing</h3>
+                    </div>
+                    <div class="right-column">
+                        <p class="company">Industry Sponsors, Patreon</p>
+                    </div>
+                </div>
+                <div class="alt-timeline-item">
+                    <div class="year-range">
+                        <time datetime="2023">2023 - &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Cycling coach</h3>
+                    </div>
+                    <div class="right-column">
+                        <p class="company">Cycle-Smart</p>
+                    </div>
+                </div>
+                <div class="alt-timeline-item">
+                    <div class="year-range">
+                        <time datetime="2023">2023 - &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</time>
+                    </div>
+                    <div class="alt-center-column">
+                        <h3 class="position">Design collaborator</h3>
+                    </div>
+                    <div class="right-column">
+                        <p class="company">studio 405</p>
+                    </div>
+                </div>
+            </section>
 
         <section class="achievements">
-            <h2>Achievements</h2>
+            <h2 class="section-header" data-section="achievements">Achievements</h2>
+            <div class="section-content" id="achievements-content">
 
             <div class="timeline-item">
                 <div class="year">
@@ -153,10 +291,10 @@
                 <div class="center-column">
                     <h3 class="notable-achievement"> 
                         <div class="item">'nice bikes' co-founder</div>
-                        <div class="description" style="line-height: 1.2;">Professional bike racing team & LGBTQ inclusion project</div>
+                        <div class="description" style="line-height: 1.2;">professional bike racing team & LGBTQ inclusion project</div>
                     </div>
                     <div class="source-link">
-                        <div class="link"><a href="https://nicebikes.org">SOURCE</a></div>
+                        <div class="link"><a href="https://nicebikes.org" target="_blank">SOURCE</a></div>
                     </div>
               </div>
               <div class="timeline-item">
@@ -166,11 +304,11 @@
                 <div class="center-column">
                     <h3 class="notable-achievement">
                         <div class="item">Fastest Known Time - Tour Divide</div>
-                        <div class="description">all time women's record for riding from Banff, AB to Antelope Wells, NM</div>
+                        <div class="description">all time women's record on the Great Divide Mountain Bike Route from Banff, AB to Antelope Wells, NM</div>
                     </h3>
                 </div>
                 <div class="source-link">
-                    <div class="link"><a href="https://bikepacking.com/news/austin-killips-tour-divide-fastest/">SOURCE</a></div>
+                    <div class="link"><a href="https://bikepacking.com/news/austin-killips-tour-divide-fastest/" target="_blank">SOURCE</a></div>
                 </div>
             </div>
     
@@ -181,11 +319,11 @@
                 <div class="center-column">
                     <h3 class="notable-achievement">
                         <div class="item">Fastest Known Time - Arizona Trail</div>
-                        <div class="description">all time women's record for riding from Arizona - Mexico border to Arizona - Utah Border</div>
+                        <div class="description">all time women's record on the Arizona Trail from Arizona - Mexico border to Arizona - Utah Border</div>
                     </h3>
                 </div>
                 <div class="source-link">
-                     <div class="link"><a href="https://bikepacking.com/news/austin-killips-arizona-trail-800-record/">SOURCE</a></div>
+                     <div class="link"><a href="https://bikepacking.com/news/austin-killips-arizona-trail-800-record/" target="_blank">SOURCE</a></div>
                 </div>
             </div>
     
@@ -200,7 +338,7 @@
                     </h3>
                 </div>
                  <div class="source-link">
-                     <div class="link"><a href="https://tourofthegila.com/2023/05/2023-tour-of-the-gila-concludes-uci-women-press-release-stage-5/">SOURCE</a></div>
+                     <div class="link"><a href="https://tourofthegila.com/2023/05/2023-tour-of-the-gila-concludes-uci-women-press-release-stage-5/" target="_blank">SOURCE</a></div>
                 </div>
             </div>
     
@@ -215,7 +353,7 @@
                     </h3>
                 </div>
                 <div class="source-link">
-                    <div class="link"><a href="https://www.bbc.com/sport/cycling/65456752">SOURCE</a></div>
+                    <div class="link"><a href="https://www.bbc.com/sport/cycling/65456752" target="_blank">SOURCE</a></div>
                 </div>
             </div>
     
@@ -231,7 +369,7 @@
                     </h3>
                 </div>
                 <div class="source-link">
-                    <div class="link"><a href="https://apnews.com/article/cycling-transgender-uci-3ecf0d7ea19ee11fb809be5c3af6d526">SOURCE</a></div>
+                    <div class="link"><a href="https://apnews.com/article/cycling-transgender-uci-3ecf0d7ea19ee11fb809be5c3af6d526" target="_blank">SOURCE</a></div>
                 </div>
             </div>
     
@@ -246,11 +384,11 @@
                     </h3>
                 </div>
                 <div class="source-link">
-                    <div class="link"><a href="https://www.youtube.com/watch?v=bCBvdSFC2Ps">SOURCE</a></div>
+                    <div class="link"><a href="https://www.youtube.com/watch?v=bCBvdSFC2Ps" target="_blank">SOURCE</a></div>
                 </div>
             </div>
 
-            <div class="writing-item">
+            <div class="writing-item">                
                 <div class="year"></div>
                 <div class="details">
                   <div class="title" style="border-top: 2px solid var(--primary-color); 
@@ -259,10 +397,17 @@
                                       padding: 10px; 
                                       float: right; 
                                       margin-left: rem; 
+<<<<<<< HEAD
+                                      margin-right: 0;
+                                      margin-bottom: 0rem;
+                                      max-width: 100%;
+                                      min-width: 10%; 
+=======
                                       margin-right: 0;
                                       margin-bottom: -2rem;
                                       max-width: 100%;
                                       min-width: 10%; 
+>>>>>>> 751a13d00376b69af3dddd0e4fe7e2a691c30bb3
                                       box-sizing: border-box; 
                                       line-height: 1;
                                       display: block;">I was the first<br> trans woman<br> to do a few <br> notable things.<br></div>
@@ -270,30 +415,77 @@
             <div style="clear: both;"></div>
                 </div>
                 </div>
-    </section>
+            </div>
+        </section>
 
-    <section class="writing">
-        <h2>Writing</h2>
-  
+        <section class="writing">
+            <h2 class="section-header" data-section="writing">Writing</h2>
+            <div class="section-content" id="writing-content">
+
+                <div class="timeline-item">
+            <div class="year">
+                <time datetime="2025">2025</time>
+            </div>
+            <div class="center-column">
+                <h3 class="written-work">
+                    <div class="item">On Playing by the Rules</div>
+                    <div class="description">The Radavist - essay</div>
+                </h3>
+            </div>
+            <div class="source-link">
+                <div class="link"><a href="https://theradavist.com/the-dust-up-playing-by-the-rules-on-the-tour-divide-race#meta" target="_blank">LINK</a></div>
+            </div>
+            </div>     
+                
+             <div class="timeline-item">
+            <div class="year">
+                <time datetime="2025">2025</time>
+            </div>
+            <div class="center-column">
+                <h3 class="written-work">
+                    <div class="item">Belated Eulogy</div>
+                    <div class="description">self published - essay</div>
+                </h3>
+            </div>
+            <div class="source-link">
+                <div class="link"><a href="https://open.substack.com/pub/estrojunkie/p/belated-eulogy?utm_campaign=post&utm_medium=web" target="_blank">LINK</a></div>
+            </div>
+        </div>
+
+            <div class="timeline-item">
+            <div class="year">
+                <time datetime="2025">2025</time>
+            </div>
+            <div class="center-column">
+                <h3 class="written-work">
+                    <div class="item">Watching the dots: Ultracycling's slow cinema</div>
+                    <div class="description">Escape Collective - essay</div>
+                </h3>
+            </div>
+            <div class="source-link">
+                <div class="link"><a href="https://escapecollective.com/watching-the-dots-ultracyclings-slow-cinema/" target="_blank">LINK</a></div>
+            </div>
+        </div>
+
+            <div class="timeline-item">
+            <div class="year">
+                <time datetime="2025">2025</time>
+            </div>
+            <div class="center-column">
+                <h3 class="written-work">
+                    <div class="item">a letter to</div>
+                    <div class="description">self-published - essay</div>
+                </h3>
+            </div>
+            <div class="source-link">
+                <div class="link"><a href="https://www.patreon.com/posts/126630948/" target="_blank">LINK</a></div>
+            </div>
+        </div>
+   
         <div class="timeline-item">
-          <div class="year">
-            <time datetime="2025">2025</time>
-          </div>
-          <div class="center-column">
-            <h3 class="written-work">
-                <div class="item">A poem about cruising, an essay about (John) Berger</div>
-                <div class="description">Transplants Magazine #3 - prose, essay, mixed media collage</div>
-            </h3>
-        </div>
-        <div class="source-link">
-            <div class="link"><a href="https://asterolsen.com/transplants-zine/issues/">LINK</a></div>
-        </div>
-    </div>
-
-    <div class="timeline-item">
-        <div class="year">
-            <time datetime="2025">2025</time>
-        </div>
+            <div class="year">
+                <time datetime="2025">2025</time>
+            </div>
         <div class="center-column">
             <h3 class="written-work">
                 <div class="item">The Great Southern Country Film Review and Interview with Filmmaker Gus Morton</div>
@@ -301,7 +493,7 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://theradavist.com/the-great-southern-country-film-review-and-interview-with-filmmaker-gus-morton/#meta">LINK</a></div>
+            <div class="link"><a href="https://theradavist.com/the-great-southern-country-film-review-and-interview-with-filmmaker-gus-morton/#meta" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -316,7 +508,7 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.thenation.com/article/society/trans-women-athletes-forum/">LINK</a></div>
+            <div class="link"><a href="https://www.thenation.com/article/society/trans-women-athletes-forum/" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -331,7 +523,7 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.theguardian.com/sport/commentisfree/2025/feb/20/trump-trans-women-sport-austin-killips">LINK</a></div>
+            <div class="link"><a href="https://www.theguardian.com/sport/commentisfree/2025/feb/20/trump-trans-women-sport-austin-killips" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -342,11 +534,11 @@
         <div class="center-column">
             <h3 class="written-work">
                 <div class="item">Visibility (and its consequences)</div>
-                <div class="description">self published - essay</div>
+                <div class="description">self published - essay<br>abridged version published for 'into being' gallery opening </div>
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/125648029/">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/125648029/" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -357,11 +549,11 @@
         <div class="center-column">
             <h3 class="written-work">
                 <div class="item">A poem about cruising, an essay about (John) Berger</div>
-                <div class="description">self published - essay</div>
+                <div class="description">self published - essay<br>featured in Transplants Magazine issue 3 as a mixed media collage</div>
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/119232013">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/119232013" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -376,7 +568,7 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/105717276">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/105717276" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -391,7 +583,7 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/101304383">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/101304383" target="_blank">LINK</a></div>
         </div>
     </div>
 
@@ -406,13 +598,13 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/98884316/">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/98884316/" target="_blank">LINK</a></div>
         </div>
     </div>
 
     <div class="timeline-item">
         <div class="year">
-            <time datetime="2024">2024</time>
+            <time datetime="2023">2023</time>
         </div>
         <div class="center-column">
             <h3 class="written-work">
@@ -421,13 +613,13 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/94877705/">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/94877705/" target="_blank">LINK</a></div>
         </div>
     </div>
 
     <div class="timeline-item">
         <div class="year">
-            <time datetime="2024">2024</time>
+            <time datetime="2023">2023</time>
         </div>
         <div class="center-column">
             <h3 class="written-work">
@@ -436,13 +628,14 @@
             </h3>
         </div>
         <div class="source-link">
-            <div class="link"><a href="https://www.patreon.com/posts/94880645/">LINK</a></div>
+            <div class="link"><a href="https://www.patreon.com/posts/94880645/" target="_blank">LINK</a></div>
         </div>
     </div>
 </section>
 
-<h2>Video Work</h2>
 <section class="video">
+    <h2 class="section-header" data-section="video">Video</h2>
+        <div class="section-content" id="video-content">
 
   <div class="timeline-item">
     <div class="year">
@@ -455,7 +648,7 @@
         </h3>
     </div> 
     <div class="source-link">
-    <div class="link"><a href="https://drive.google.com/file/d/1bgh5ZUjj_nFHx_Efs-FN5nt_k-R8Uc8r/view?usp=drive_link">LINK</a></div>
+    <div class="link"><a href="https://drive.google.com/file/d/1bgh5ZUjj_nFHx_Efs-FN5nt_k-R8Uc8r/view?usp=drive_link" target="_blank">LINK</a></div>
     </div>
   </div>
   <div class="timeline-item">
@@ -469,7 +662,7 @@
       </h3>
     </div>
     <div class="source-link">
-      <div class="link"><a href="https://vimeo.com/1073754716">LINK</a></div>
+      <div class="link"><a href="https://vimeo.com/1073754716" target="_blank">LINK</a></div>
     </div>
   </div>
 
@@ -484,7 +677,7 @@
       </h3>
     </div>
     <div class="source-link">
-      <div class="link"><a href="https://vimeo.com/1058841086">LINK</a></div>
+      <div class="link"><a href="https://vimeo.com/1058841086" target="_blank">LINK</a></div>
     </div>
   </div>
 
@@ -499,7 +692,7 @@
       </h3>
     </div>
     <div class="source-link">
-      <div class="link"><a href="https://vimeo.com/1072876528">LINK</a></div>
+      <div class="link"><a href="https://vimeo.com/1072876528" target="_blank">LINK</a></div>
     </div>
   </div>
 
@@ -514,7 +707,7 @@
       </h3>
     </div>
     <div class="source-link">
-      <div class="link"><a href="https://vimeo.com/1072877549">LINK</a></div>
+      <div class="link"><a href="https://vimeo.com/1072877549" target="_blank">LINK</a></div>
     </div>
   </div>
 
@@ -527,12 +720,12 @@
         <div class="item">casual encounters</div>
         <div class="description" style="line-height: 1.4; padding-bottom:.5rem">narrative short film<br>
           streaming on the <i>Otherness Archive</i><br>
-          screening run with <i>Full Specture Features</i>
+          screening run with <i>Full Spectrum Features</i>
         </div>
       </h3>
     </div>
     <div class="source-link">
-      <div class="link"><a href="https://vimeo.com/1073701928">LINK</a></div>
+      <div class="link"><a href="https://vimeo.com/1073701928" target="_blank">LINK</a></div>
     </div>
   </div>
 
@@ -547,13 +740,86 @@
       </h3>
     </div>
     <div class="source-link">
-      <div class="link"><a href="https://vimeo.com/1036156526">LINK</a></div>
+      <div class="link"><a href="https://vimeo.com/1036156526" target="_blank">LINK</a></div>
     </div>
   </div>
 </section>
 
+<section class="Images">
+    <h2 class="section-header" data-section="Images">Graphic Design</h2>
+        <div class="section-content" id="Images-content">
+       
+
+        <div class="timeline-item">
+            <div class="year">
+              <time datetime="2025">2025</time>
+          </div>
+            <div class="center-column">
+              <h3 class="images">
+               <div class="item">'into being' gallery materials</div>
+              <div class="description">design project for FXCollaborative gallery show <br>
+                                       posters, handouts, brochure, and vinyl graphics</div>
+          </h3>
+            </div>
+          <div class="source-link">
+              <div class="link"><a href="intobeing001-compressed.pdf" target="_blank">LINK</a>
+          </div>
+      </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">
+          <time datetime="2025">2025</time>
+      </div>
+        <div class="center-column">
+          <h3 class="images">
+           <div class="item">Women Do Not Poop media deck</div>
+          <div class="description">commissioned for short film premiering at Brooklyn Film Festival in 2025</div>
+      </h3>
+        </div>
+      <div class="source-link">
+          <div class="link"><a href="WDNP media deck.pdf" target="_blank">LINK</a>
+      </div>
+  </div>
+  </div>
+             <div class="timeline-item">
+        <div class="year">
+          <time datetime="2025">2025</time>
+      </div>
+        <div class="center-column">
+          <h3 class="images">
+           <div class="item">casual encounters poster</div>
+          <div class="description">short film poster for web distribution</div>
+      </h3>
+        </div>
+      <div class="source-link">
+          <div class="link"><a href="casual encounters poster.jpg" target="_blank">LINK</a>
+      </div>
+  </div>
+  </div>
+
+</section>
+
+
 <section class="interviews">
-    <h2>Interviews and Press</h2>
+    <h2 class="section-header" data-section="interviews">Interviews & Press</h2>
+    <div class="section-content" id="interviews-content">
+
+        <div class="timeline-item">
+            <div class="year">
+              <time datetime="2025">2025</time>
+          </div>
+            <div class="center-column">
+              <h3 class="published-interviews">
+               <div class="item">Axios Interview </div>
+              <div class="description">snippest from conversation about bans on trans athletes</div>
+          </h3>
+            </div>
+          <div class="source-link">
+              <div class="link"><a href="https://www.axios.com/2025/05/04/trans-athletes-react-sports-ban-trump" target="_blank">LINK</a>
+          </div>
+      </div>
+      </div>
 
     <div class="timeline-item">
       <div class="year">
@@ -562,11 +828,11 @@
       <div class="center-column">
         <h3 class="published-interviews">
          <div class="item">Radavist interview with Spencer Harding</div>
-        <div class="description">conversation about setting Tour Divide fastest known time</div>
+        <div class="description">conversation about setting the fastest known time on the Tour Divide</div>
     </h3>
       </div>
     <div class="source-link">
-        <div class="link"><a href="https://theradavist.com/a-conversation-with-austin-killips/">LINK</a>
+        <div class="link"><a href="https://theradavist.com/a-conversation-with-austin-killips/" target="_blank">LINK</a>
     </div>
 </div>
 </div>
@@ -582,7 +848,7 @@
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://bikeleague.org/carving-out-space-with-austin-killips/">LINK</a>
+        <div class="link"><a href="https://bikeleague.org/carving-out-space-with-austin-killips/" target="_blank">LINK</a>
     </div>
 </div>
 </div>
@@ -595,11 +861,11 @@
     <div class="center-column">
         <h3 class="published-interviews">
             <div class="item">Adventure Cycling Magazine interview</div>
-            <div class="description">conversation about setting Tour Divide fastest known time</div>
+            <div class="description">conversation about setting the fastest known time on the Tour Divide</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="" style="color: black; background-color: yellow;">(IN PRINT)</a></div>
+        <div class="link"><a href="" style="color: black; background-color: yellow;" target="_blank">PRINT</a></div>
     </div>
 </div>
 
@@ -609,12 +875,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">Frankie de Le cretaz substack</div>
+            <div class="item">Frankie de la Cretaz Substack</div>
             <div class="description">conversation about navigating professional sport in the wake of trans athlete ban</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://www.thefrankiedlc.news/p/cyclist-austin-killips-is-building">LINK</a></div>
+        <div class="link"><a href="https://www.thefrankiedlc.news/p/cyclist-austin-killips-is-building" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -624,12 +890,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">Detours Podcast with Mel Webb</div>
-            <div class="description">conversation about Arizona Trail 800 fastest known time</div>
+            <div class="item">Detours podcast with Mel Webb</div>
+            <div class="description">conversation about setting fastest known time on the Arizona Trail 800</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://shows.acast.com/detours-an-ultra-cycling-adventure-podcast/episodes/austin-killips-on-her-arizona-trail-fkt">LINK</a></div>
+        <div class="link"><a href="https://shows.acast.com/detours-an-ultra-cycling-adventure-podcast/episodes/austin-killips-on-her-arizona-trail-fkt" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -640,11 +906,11 @@
     <div class="center-column">
         <h3 class="published-interviews">
             <div class="item">Cycling News with Laura Weislo</div>
-            <div class="description">conversation about Arizona Trail 800 fastest known time</div>
+            <div class="description">conversation about the Tour of the Gila one year on and my plans to set the Arizona Trail 800 fastest known time</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://www.cyclingnews.com/features/one-year-on-from-tour-of-the-gila-victory-killips-aiming-for-record-on-arizona-trail/">LINK</a></div>
+        <div class="link"><a href="https://www.cyclingnews.com/features/one-year-on-from-tour-of-the-gila-victory-killips-aiming-for-record-on-arizona-trail/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -655,11 +921,11 @@
     <div class="center-column">
         <h3 class="published-interviews">
             <div class="item">Cycling Magazine with Micah Ling</div>
-            <div class="description">conversation about Tour of the Gila and my ultra-racing ambitions</div>
+            <div class="description">conversation about the Tour of the Gila and my ultra-racing ambitions</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://www.cyclingnews.com/features/one-year-on-from-tour-of-the-gila-victory-killips-aiming-for-record-on-arizona-trail/">LINK</a></div>
+        <div class="link"><a href="https://www.cyclingnews.com/features/one-year-on-from-tour-of-the-gila-victory-killips-aiming-for-record-on-arizona-trail/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -669,12 +935,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">Knoxville sentinel interview with Cora Hall</div>
-            <div class="description">conversation about the people protesting my participation at the national championship road race</div>
+            <div class="item">Knoxville Sentinel interview with Cora Hall</div>
+            <div class="description">conversation about protests around my participation at 2023 the national championship road race</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://www.knoxnews.com/story/sports/local/2023/06/25/austin-killips-trans-woman-controversy-cycling-uci-protest/70354231007/">LINK</a></div>
+        <div class="link"><a href="https://www.knoxnews.com/story/sports/local/2023/06/25/austin-killips-trans-woman-controversy-cycling-uci-protest/70354231007/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -684,12 +950,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">Outside interview with Emma Zimmerman</div>
-            <div class="description">conversation about my alternative model for an ultra-endurance racing program</div>
+            <div class="item">Outside Magazine interview with Emma Zimmerman</div>
+            <div class="description">profile including my thoughts on cycling and Simone Weil</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://www.outsideonline.com/outdoor-adventure/biking/austin-killips-trans-woman-cyclist-tour-gila-belgian-waffle-ride/">LINK</a></div>
+        <div class="link"><a href="https://www.outsideonline.com/outdoor-adventure/biking/austin-killips-trans-woman-cyclist-tour-gila-belgian-waffle-ride/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -704,7 +970,7 @@
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://www.cyclingnews.com/features/it-is-incredibly-painful-to-be-othered-austin-killips-on-division-debate-and-building-dialogue/">LINK</a></div>
+        <div class="link"><a href="https://www.cyclingnews.com/features/it-is-incredibly-painful-to-be-othered-austin-killips-on-division-debate-and-building-dialogue/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -714,12 +980,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">Velo Magazine Interview with Jose Been</div>
-            <div class="description">conversation about nice bikes and the elevating the state of women's racing</div>
+            <div class="item">Velo Magazine interview with Jose Been</div>
+            <div class="description">conversation about nice bikes and the state of affairs for women cyclists as laborers</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://velo.outsideonline.com/road/road-racing/austin-killips-is-making-waves-in-the-cyclocross-peloton/">LINK</a></div>
+        <div class="link"><a href="https://velo.outsideonline.com/road/road-racing/austin-killips-is-making-waves-in-the-cyclocross-peloton/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -730,11 +996,11 @@
     <div class="center-column">
         <h3 class="published-interviews">
             <div class="item">CXHairs interview with Zach Schuster</div>
-            <div class="description">conversation about 2022 domestic cyclocross season</div>
+            <div class="description">conversation about the 2022 domestic cyclocross season</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://cxhairs.substack.com/p/a-little-motivation-goes-a-long-way?utm_source=publication-search">LINK</a></div>
+        <div class="link"><a href="https://cxhairs.substack.com/p/a-little-motivation-goes-a-long-way?utm_source=publication-search" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -749,7 +1015,7 @@
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://cxhairs.substack.com/p/in-first-world-cup-austin-killips?utm_source=publication-search">LINK</a></div>
+        <div class="link"><a href="https://cxhairs.substack.com/p/in-first-world-cup-austin-killips?utm_source=publication-search" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -759,12 +1025,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">Velonews Snippet</div>
+            <div class="item">Velonews article snippet</div>
             <div class="description">commenting on the anti-trans laws in Fayetteville, Arkansas</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://velo.outsideonline.com/cyclocross/cyclocross-racing/athletes-activists-see-fayetteville-world-cup-as-opportunity-to-counter-trans-legislation/">LINK</a></div>
+        <div class="link"><a href="https://velo.outsideonline.com/cyclocross/cyclocross-racing/athletes-activists-see-fayetteville-world-cup-as-opportunity-to-counter-trans-legislation/" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -774,12 +1040,12 @@
     </div>
     <div class="center-column">
         <h3 class="published-interviews">
-            <div class="item">CXHairs Transgender roundtable</div>
+            <div class="item">CXHairs transgender roundtable</div>
             <div class="description">discussion about trans inslusion in sport</div>
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://cxhairs.substack.com/p/cyclocross-radio-ep-225-anti-transgender">LINK</a></div>
+        <div class="link"><a href="https://cxhairs.substack.com/p/cyclocross-radio-ep-225-anti-transgender" target="_blank">LINK</a></div>
     </div>
 </div>
 
@@ -794,15 +1060,30 @@
         </h3>
     </div>
     <div class="source-link">
-        <div class="link"><a href="https://livefeisty.com/stories/blog/finally-feisty-females-get-a-dedicated-conference/">LINK</a></div>
+        <div class="link"><a href="https://livefeisty.com/stories/blog/finally-feisty-females-get-a-dedicated-conference/" target="_blank">LINK</a></div>
     </div>
 </div>
 </section>
 
 <section class="research">
-    <h2>Research I'm In</h2>
-
+    <h2 class="section-header" data-section="research">Research I'm In</h2>
+    <div class="section-content" id="research-content">
  
+        <div class="timeline-item">
+            <div class="year">
+                <time datetime="2024"> 2025</time>
+            </div>
+            <div class="center-column">
+            <h3 class="research-work">
+                <div class="item">Post-Ocean: Sustainable Practice in a Collapsing Climate</div>
+                <div class="authors">Max Pratt</div>
+            </h3>
+        </div>
+        <div class="source-link">
+         <div class="link"><a href="https://digitalcommons.risd.edu/colorlab_exhibitions_postoceanmaxpratt/6/" target="_blank">LINK</a></div>
+        </div>
+        </div>
+
 <div class="timeline-item">
     <div class="year">
         <time datetime="2024"> 2024</time>
@@ -814,7 +1095,7 @@
     </h3>
 </div>
 <div class="source-link">
- <div class="link"><a href="https://experts.illinois.edu/en/publications/religion-and-human-rights-from-culture-war-clashes-to-common-grou">LINK</a></div>
+ <div class="link"><a href="https://experts.illinois.edu/en/publications/religion-and-human-rights-from-culture-war-clashes-to-common-grou" target="_blank">LINK</a></div>
 </div>
 </div>
 
@@ -829,7 +1110,7 @@
     </h3>
 </div>
 <div class="source-link">
- <div class="link"><a href="https://www.seed-deporte.es/noticias/como-puede-influir-la-ley-trans-en-el-mundo-del-deporte?elem=337272">LINK</a></div>
+ <div class="link"><a href="https://www.seed-deporte.es/noticias/como-puede-influir-la-ley-trans-en-el-mundo-del-deporte?elem=337272" target="_blank">LINK</a></div>
 </div>
 </div>
 
@@ -844,7 +1125,7 @@
     </h3>
 </div>
 <div class="source-link">
- <div class="link"><a href="https://irep.ntu.ac.uk/id/eprint/52408/1/2248676_Patel.pdf">LINK</a></div>
+ <div class="link"><a href="https://irep.ntu.ac.uk/id/eprint/52408/1/2248676_Patel.pdf" target="_blank">LINK</a></div>
 </div>
 </div>
 
@@ -859,7 +1140,7 @@
     </h3>
 </div>
 <div class="source-link">
- <div class="link"><a href="https://www.researchgate.net/publication/375518120_Trans_Athletes_and_the_Limits_of_Recognition_Visibility_and_Intelligibility?_tp=eyJjb250ZXh0Ijp7InBhZ2UiOiJzY2llbnRpZmljQ29udHJpYnV0aW9ucyIsInByZXZpb3VzUGFnZSI6bnVsbH19">LINK</a></div>
+ <div class="link"><a href="https://www.researchgate.net/publication/375518120_Trans_Athletes_and_the_Limits_of_Recognition_Visibility_and_Intelligibility?_tp=eyJjb250ZXh0Ijp7InBhZ2UiOiJzY2llbnRpZmljQ29udHJpYnV0aW9ucyIsInByZXZpb3VzUGFnZSI6bnVsbH19" target="_blank">LINK</a></div>
 </div>
 </div>
 
@@ -874,7 +1155,7 @@
     </h3>
 </div>
 <div class="source-link">
- <div class="link"><a href="https://www.researchgate.net/publication/375518016_Introduction_The_Binary_World_of_Sport_Belonging_and_Resistance">LINK</a></div>
+ <div class="link"><a href="https://www.researchgate.net/publication/375518016_Introduction_The_Binary_World_of_Sport_Belonging_and_Resistance" target="_blank">LINK</a></div>
 </div>
 </div>
 
@@ -884,20 +1165,21 @@
     </div>
     <div class="center-column">
     <h3 class="research-work">
-        <div class="item">No Winner Transgender Athletes in Cycling</div>
+        <div class="item">No Winners: Transgender Athletes in Cycling</div>
         <div class="authors">Max Pratt</div>
     </h3>
 </div>
 <div class="source-link">
- <div class="link"><a href="https://digitalcommons.risd.edu/cgi/viewcontent.cgi?article=1752&context=masterstheses">LINK</a></div>
+ <div class="link"><a href="https://digitalcommons.risd.edu/cgi/viewcontent.cgi?article=1752&context=masterstheses" target="_blank">LINK</a></div>
 </div>
 </div>
 
 </section>
 
 <section class="cycling-results">
-    <h2>Cycling Results</h2>
-    <p class="subheading">* Limited to international level competitions</p>
+    <h2 class="section-header" data-section="cycling-results">Cycling Results</h2>
+    <div class="section-content" id="cycling-results-content">    
+        <p class="subheading">* Limited to international level competitions</p>
     <p class="subheading">** National championships and overall wins at stage races are bolded</p>
     <br>
 
@@ -929,8 +1211,7 @@
         </div>
     </div>
 
-    <hr style="margin:.5rem 0rem .5rem; height:2px; width:5rem; border-top:8px solid #e93423">
-    <br>
+    <hr style="margin:.5rem 1rem .5rem; height:2px; width:3rem; border-top: 4px solid #e93423">
 
     <div class="timeline-item">
         <div class="year">
@@ -1105,8 +1386,7 @@
         </div>
     </div>
 
-    <hr style="margin:.5rem 0rem .5rem; height:2px; width:5rem; border-width:100%; border-top:8px solid #e93423">
-    <br>
+    <hr style="margin:.5rem 1rem .5rem; height:2px; width:3rem; border-top: 4px solid #e93423">
 
     <div class="timeline-item">
         <div class="year">
@@ -1114,13 +1394,14 @@
         </div>
         <div class="center-column">
             <h3 class="race-result">
-                <div class="item">Cyclocross National Championship</div>
+                <div class="event" style="font-weight:bold">Cyclocross National Championship</div>
             </h3>
         </div>
         <div class="place-highlight">
             <div class="result-highlight" style="background-color:#CE8946">3RD</div>
         </div>
     </div>
+
     <div class="timeline-item">
         <div class="year">
             <time datetime="2022">2022</time>
@@ -1525,6 +1806,552 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+    <div class="timeline-item">
+        <div class="year">
+            <time datetime="2022">2022</time>
+        </div>
+        <div class="center-column">
+            <h3 class="race-result">
+                <div class="event">Mid South Gravel</div>
+            </h3>
+        </div>
+        <div class="place-highlight">
+            <div class="result-highlight">6TH</div>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="year">
+            <time datetime="2022">2022</time>
+        </div>
+        <div class="center-column">
+            <h3 class="race-result">
+                <div class="event">Barry Roubaix</div>
+            </h3>
+        </div>
+        <div class="place-highlight">
+            <div class="result-highlight" style="background-color:silver">2ND</div>
+        </div>
+    </div>
+
+    <hr style="margin: 1rem ; height:2px; width:3rem; border-top: 4px solid #e93423">
+
+    <div class="timeline-item">
+        <div class="year">
+             <time datetime="2021">2021</time>
+         </div>
+        <div class="center-column">
+          <h3 class="race-result">
+             <div class= "event">UCI World Cup Rucphen</div>
+          </h3>
+     </div>
+     <div class="place-highlight">
+         <div class="result-highlight">52ND</div>
+          </div>
+          </div>
+
+     <div class="timeline-item">
+       <div class="year">
+            <time datetime="2021">2021</time>
+        </div>
+       <div class="center-column">
+         <h3 class="race-result">
+            <div class= "event">Cyclocross National Championship</div>
+         </h3>
+    </div>
+    <div class="place-highlight">
+        <div class="result-highlight">10TH</div>
+         </div>
+         </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">North Carolina Grand Prix C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">7TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">North Carolina Grand Prix C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">10TH</div>
+              </div>
+            </div>
+
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Major Taylor Cross Cup C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">9TH</div>
+              </div>
+            </div>
+
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Major Taylor Cross Cup C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">5TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Kings CX C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">15TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Kings CX C1</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">11TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">UCI World Cup Iowa City</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">36TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Jingle Cross C1</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">22ND</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Trek Cup</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">13TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Charm City CX C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">15TH</div>
+              </div>
+            </div>
+
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Charm City CX C1</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">15TH</div>
+              </div>
+            </div>
+
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Rochester Cyclocross C1</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">12TH</div>
+              </div>
+            </div>
+
+         <div class="timeline-item">
+            <div class="year">
+                 <time datetime="2021">2021</time>
+             </div>
+            <div class="center-column">
+              <h3 class="race-result">
+                 <div class= "event">Virginia's Blue Ridge GO Cross C2</div>
+              </h3>
+         </div>
+         <div class="place-highlight">
+             <div class="result-highlight">8TH</div>
+              </div>
+            </div>
+
+       <div class="timeline-item">
+        <div class="year">
+             <time datetime="2021">2021</time>
+         </div>
+        <div class="center-column">
+          <h3 class="race-result">
+             <div class= "event">Virginia's Blue Ridge GO Cross C2</div>
+          </h3>
+     </div>
+     <div class="place-highlight">
+         <div class="result-highlight">11TH</div>
+          </div>
+        </div>
+        
+       <div class="timeline-item">
+        <div class="year">
+             <time datetime="2021">2021</time>
+         </div>
+        <div class="center-column">
+          <h3 class="race-result">
+             <div class= "event">Rebecca's Private Idaho - Queen's Stage Race</div>
+          </h3>
+     </div>
+     <div class="place-highlight">
+         <div class="result-highlight">5TH</div>
+          </div>
+        </div>
+
+       <div class="timeline-item">
+        <div class="year">
+             <time datetime="2021">2021</time>
+         </div>
+        <div class="center-column">
+          <h3 class="race-result">
+             <div class= "event"> Track National Championship (Team Relay)</div>
+          </h3>
+     </div>
+     <div class="place-highlight">
+         <div class="result-highlight"style="background-color:silver">2ND</div>
+          </div>
+        </div>
+</section>
+<hr class=line style="margin: rem ; height:2px; width:100.5%; border-top: 2px solid #e93423 ">
+
+      <section class="outro">
+        <p class="outro-borderbox"> Thank you for reading<br>If you have any questions<br>or just want to chat<br>please say hello
+      <div class="outro-top"></div>
+      <div class="outro-bottom"></div>
+      <div class="outro-left"></div>
+      <div class="outro-left2"></div>
+      <div class="outro-right"></div>
+        </section>
+        <section class="cv-footer">
+            <a href="mailto:hello@austinkillips.com" class="bottom-contact-email" >hello@austinkillips.com </a> 
+            </section>
+        
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    
+    sectionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const sectionName = this.getAttribute('data-section');
+            const content = document.getElementById(sectionName + '-content');
+
+            if (content) {
+                this.classList.toggle('expanded');
+                content.classList.toggle('expanded');
+                
+                // Generate random rotation when expanding
+                if (this.classList.contains('expanded')) {
+                    const randomRotation = Math.random() * 360; // 0 to 360 degrees
+                    this.style.setProperty('--random-rotation', `${randomRotation}deg`);
+                }
+            }
+        });
+    });
+    
+    // Keyboard support
+    sectionHeaders.forEach(header => {
+        header.setAttribute('tabindex', '0');
+        header.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+});
+            
+            </script>
+
+            <script>
+// Get elements
+const openPopupBtn = document.getElementById('openPopup');
+const closePopupBtn = document.getElementById('closePopup');
+const popupOverlay = document.getElementById('popupOverlay');
+const form = document.getElementById('form');
+const successMessage = document.getElementById('successMessage');
+const cvContainer = document.querySelector('.cv-container');
+
+// Store original text for restoration
+const originalOutroText = 'Thank you for reading<br>If you have any questions<br>or just want to chat<br>please say hello';
+const originalBorderboxText = 'Hi, <br>my name is Austin <br> and this is a collection <br>of things I have done.';
+
+// Cache key for storing form data
+const FORM_CACHE_KEY = 'contactFormData';
+
+function saveFormData() {
+    const contactForm = document.querySelector('.contact-form');
+    if (!contactForm) return;
+
+    const formData = {};
+    const inputs = contactForm.querySelectorAll('input, textarea, select');
+
+    inputs.forEach(input => {
+        if (input.name) {
+            formData[input.name] = input.value;
+        }
+    });
+
+    window.formCache = formData;
+}
+
+function restoreFormData() {
+    const contactForm = document.querySelector('.contact-form');
+    if (!contactForm || !window.formCache) return;
+
+    const inputs = contactForm.querySelectorAll('input, textarea, select');
+
+    inputs.forEach(input => {
+        if (input.name && window.formCache[input.name]) {
+            input.value = window.formCache[input.name];
+        }
+    });
+}
+
+function clearFormCache() {
+    window.formCache = null;
+}
+
+function adjustOutroBorderbox(isPopupOpen) {
+    const outro = document.querySelector('.outro');
+    if (!outro) return;
+
+    outro.classList.toggle('popup-active', isPopupOpen);
+}
+
+// Random rotation function
+function applyRandomRotation(element) {
+    const randomRotation = Math.floor(Math.random() * 360);
+    element.style.transform = `rotate(${randomRotation}deg)`;
+}
+
+// Apply rotation on page load
+if (closePopupBtn) applyRandomRotation(closePopupBtn);
+
+// Open popup
+openPopupBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    popupOverlay.classList.add('active');
+    document.body.style.overflow = '';
+
+    // Hide '+' signs
+    document.querySelectorAll('.section-header, .line').forEach(el => {
+        el.style.visibility = 'hidden';
+    });
+
+    // Collapse all expanded sections
+    document.querySelectorAll('.section-header.expanded').forEach(el => el.classList.remove('expanded'));
+    document.querySelectorAll('[id$="-content"].expanded').forEach(el => el.classList.remove('expanded'));
+
+    const outroBorderbox = document.querySelector('.outro-borderbox');
+    if (outroBorderbox) {
+        outroBorderbox.innerHTML = 'thanks for writing<br> all of my best friends <br> used to be stangers <br> until one of us said hello ';
+    }
+
+    const borderbox = document.querySelector('.borderbox');
+    if (borderbox) {
+        borderbox.innerHTML = 'Well, I guess... <br>choosing to say hi<br> makes this more <br>about us than me';
+    }
+
+    applyRandomRotation(closePopupBtn);
+    adjustOutroBorderbox(true);
+
+    // Hide vertical line via class
+    if (cvContainer) cvContainer.classList.add('hide-line');
+
+    setTimeout(restoreFormData, 100);
+});
+
+// Close popup
+function closePopup() {
+    saveFormData();
+    popupOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+
+    if (successMessage) successMessage.classList.remove('show');
+
+    document.querySelectorAll('.section-header, .line').forEach(el => {
+        el.style.visibility = 'visible';
+    });
+
+    const outroBorderbox = document.querySelector('.outro-borderbox');
+    if (outroBorderbox) {
+        outroBorderbox.innerHTML = originalOutroText;
+    }
+
+    const borderbox = document.querySelector('.borderbox');
+    if (borderbox) {
+        borderbox.innerHTML = originalBorderboxText;
+    }
+
+    adjustOutroBorderbox(false);
+
+    // Restore line
+    if (cvContainer) cvContainer.classList.remove('hide-line');
+}
+
+closePopupBtn.addEventListener('click', closePopup);
+
+closePopupBtn.addEventListener('mouseenter', function () {
+    this.textContent = '–';
+    applyRandomRotation(this);
+});
+
+closePopupBtn.addEventListener('mouseleave', function () {
+    this.textContent = '×';
+    applyRandomRotation(this);
+});
+
+closePopupBtn.addEventListener('click', function () {
+    applyRandomRotation(this);
+});
+
+popupOverlay.addEventListener('click', function (e) {
+    if (e.target === popupOverlay) closePopup();
+});
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+        closePopup();
+    }
+});
+
+// Auto-save form
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('input', saveFormData);
+        contactForm.addEventListener('change', saveFormData);
+
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+
+            if (submitButton) {
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+            }
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        clearFormCache();
+                        successMessage.classList.add('show');
+                        contactForm.style.display = 'none';
+
+                        setTimeout(() => {
+                            closePopup();
+                            contactForm.style.display = 'block';
+                            contactForm.reset();
+                        }, 2000);
+                    } else {
+                        alert('Oh no! Something went wrong, can you try sending again?');
+                    }
+                } else {
+                    alert('Oh no! Something went wrong, can you try sending again?');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Oh no! Something went wrong, can you try sending again?');
+            } finally {
+                if (submitButton) {
+                    submitButton.textContent = 'Send';
+                    submitButton.disabled = false;
+                }
+            }
+        });
+    }
+});
+</script>
+=======
     <hr style="margin:.5rem 0rem .5rem; height:2px; width:5rem; border-width:100%; border-top:8px solid #e93423">
     <br>
 
@@ -1570,5 +2397,6 @@
       <div class="outro-right"></div>
         </section>
 
+>>>>>>> 751a13d00376b69af3dddd0e4fe7e2a691c30bb3
 </body>
 </html>
